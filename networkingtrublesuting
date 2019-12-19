@@ -1,0 +1,1515 @@
+Last login: Fri Dec  6 13:49:09 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bnnsrihd0lqv64k0aj8g/kube-config-dal10-twc-cicd-trial-cluster.yml
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl version --short
+Client Version: v1.15.1
+Server Version: v1.14.9+IKS
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pod -0 wide
+Error: unknown shorthand flag: '0' in -0
+
+
+Examples:
+  # List all pods in ps output format.
+  kubectl get pods
+  
+  # List all pods in ps output format with more information (such as node name).
+  kubectl get pods -o wide
+  
+  # List a single replication controller with specified NAME in ps output format.
+  kubectl get replicationcontroller web
+  
+  # List deployments in JSON output format, in the "v1" version of the "apps" API group:
+  kubectl get deployments.v1.apps -o json
+  
+  # List a single pod in JSON output format.
+  kubectl get -o json pod web-pod-13je7
+  
+  # List a pod identified by type and name specified in "pod.yaml" in JSON output format.
+  kubectl get -f pod.yaml -o json
+  
+  # List resources from a directory with kustomization.yaml - e.g. dir/kustomization.yaml.
+  kubectl get -k dir/
+  
+  # Return only the phase value of the specified pod.
+  kubectl get -o template pod/web-pod-13je7 --template={{.status.phase}}
+  
+  # List resource information in custom columns.
+  kubectl get pod test-pod -o custom-columns=CONTAINER:.spec.containers[0].name,IMAGE:.spec.containers[0].image
+  
+  # List all replication controllers and services together in ps output format.
+  kubectl get rc,services
+  
+  # List one or more resources by their type and names.
+  kubectl get rc/web service/frontend pods/web-pod-13je7
+
+Options:
+  -A, --all-namespaces=false: If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+      --allow-missing-template-keys=true: If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats.
+      --chunk-size=500: Return large lists in chunks rather than all at once. Pass 0 to disable. This flag is beta and may change in the future.
+      --field-selector='': Selector (field query) to filter on, supports '=', '==', and '!='.(e.g. --field-selector key1=value1,key2=value2). The server only supports a limited number of field queries per type.
+  -f, --filename=[]: Filename, directory, or URL to files identifying the resource to get from a server.
+      --ignore-not-found=false: If the requested object does not exist the command will return exit code 0.
+  -k, --kustomize='': Process the kustomization directory. This flag can't be used together with -f or -R.
+  -L, --label-columns=[]: Accepts a comma separated list of labels that are going to be presented as columns. Names are case-sensitive. You can also use multiple flag options like -L label1 -L label2...
+      --no-headers=false: When using the default or custom-column output format, don't print headers (default print headers).
+  -o, --output='': Output format. One of: json|yaml|wide|name|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=... See custom columns [http://kubernetes.io/docs/user-guide/kubectl-overview/#custom-columns], golang template [http://golang.org/pkg/text/template/#pkg-overview] and jsonpath template [http://kubernetes.io/docs/user-guide/jsonpath].
+      --raw='': Raw URI to request from the server.  Uses the transport specified by the kubeconfig file.
+  -R, --recursive=false: Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+  -l, --selector='': Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --server-print=true: If true, have the server return the appropriate table output. Supports extension APIs and CRDs.
+      --show-kind=false: If present, list the resource type for the requested object(s).
+      --show-labels=false: When printing, show all labels as the last column (default hide labels column)
+      --sort-by='': If non-empty, sort list types using this field specification.  The field specification is expressed as a JSONPath expression (e.g. '{.metadata.name}'). The field in the API resource specified by this JSONPath expression must be an integer or a string.
+      --template='': Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+  -w, --watch=false: After listing/getting the requested object, watch for changes. Uninitialized objects are excluded if no object name is provided.
+      --watch-only=false: Watch for changes to the requested object(s), without listing/getting first.
+
+Usage:
+  kubectl get [(-o|--output=)json|yaml|wide|custom-columns=...|custom-columns-file=...|go-template=...|go-template-file=...|jsonpath=...|jsonpath-file=...] (TYPE[.VERSION][.GROUP] [NAME | -l label] | TYPE[.VERSION][.GROUP]/NAME ...) [flags] [options]
+
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+
+unknown shorthand flag: '0' in -0
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get node
+NAME            STATUS   ROLES    AGE     VERSION
+10.209.198.38   Ready    <none>   6d21h   v1.14.9+IKS
+10.209.198.40   Ready    <none>   6d21h   v1.14.9+IKS
+10.209.198.41   Ready    <none>   6d21h   v1.14.9+IKS
+10.74.225.16    Ready    <none>   6d21h   v1.14.9+IKS
+10.74.225.22    Ready    <none>   6d21h   v1.14.9+IKS
+10.74.225.26    Ready    <none>   6d21h   v1.14.9+IKS
+10.94.242.142   Ready    <none>   6d21h   v1.14.9+IKS
+10.94.242.151   Ready    <none>   6d21h   v1.14.9+IKS
+10.94.242.157   Ready    <none>   6d21h   v1.14.9+IKS
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ helm list
+NAME            	REVISION	UPDATED                 	STATUS  	CHART                 	APP VERSION	NAMESPACE    
+analytics-ingest	1       	Tue Dec 17 09:13:53 2019	DEPLOYED	analytics-ingest-0.0.5	1.0        	analytics-poc
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get namespace
+NAME              STATUS   AGE
+analytics-poc     Active   3d22h
+default           Active   6d21h
+ibm-cert-store    Active   6d21h
+ibm-system        Active   6d21h
+kube-node-lease   Active   6d21h
+kube-public       Active   6d21h
+kube-system       Active   6d21h
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get -n analytics-poc pods
+NAME                                                              READY   STATUS    RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-cdx6h                         1/1     Running   0          39m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-czwtk         2/2     Running   0          39m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-lh29j   1/1     Running   0          39m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-5v5vg          1/1     Running   0          39m
+analytics-ingest-prometheus-server-c9668c4df-kzjh7                2/2     Running   0          39m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km   1/1     Running   0          39m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-6g675   1/1     Running   0          39m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g   1/1     Running   0          39m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-56mst   1/1     Running   0          39m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6z7ng   1/1     Running   0          39m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-9t42q   1/1     Running   0          39m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-bjh49   1/1     Running   0          39m
+analytics-poc-ingest-time-bucket-aggregation-deployment-566wwlt   1/1     Running   0          39m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56946cq   1/1     Running   0          39m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx   1/1     Running   0          39m
+analytics-queue-receiver-poc-deployment-677b4478-64hb7            1/1     Running   0          39m
+analytics-queue-receiver-poc-deployment-677b4478-ntg7m            1/1     Running   0          39m
+analytics-queue-receiver-poc-deployment-677b4478-sx4qq            1/1     Running   0          39m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.209.198.40:10250/containerLogs/analytics-poc/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km/analytics-poc-ingest-etl-encryption?follow=true: dial tcp 10.209.198.40:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-ingest-prometheus-alertmanager-6fd45654dd-czwtk --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server (BadRequest): a container name must be specified for pod analytics-ingest-prometheus-alertmanager-6fd45654dd-czwtk, choose one of: [prometheus-alertmanager prometheus-alertmanager-configmap-reload]
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+[INFO ] - 2019-12-17 14:14:02,662 - akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,671 - akka.event.EventStream - logger log1-Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,673 - akka.event.EventStream - Default Loggers started
+[WARN ] - 2019-12-17 14:14:02,707 - akka.util.ManifestInfo - Detected possible incompatible versions on the classpath. Please note that a given Akka version MUST be the same across all modules of Akka that you are using, e.g. if you use [2.5.25] all other modules that are released together MUST be of the same version. Make sure you're using a compatible set of libraries. Possibly conflicting versions [2.5.25, 2.5.23] in libraries [akka-protobuf:2.5.25, akka-actor:2.5.25, akka-slf4j:2.5.23, akka-stream:2.5.25]
+[DEBUG] - 2019-12-17 14:14:03,418 - akka.kafka.internal.KafkaConsumerActor - Creating Kafka consumer with akka.kafka.ConsumerSettings(properties=auto.offset.reset -> earliest,client.dns.lookup -> use_all_dns_ips,group.id -> time-bucket-aggregation-bar-android-group,ssl.enabled.protocols -> TLSv1.2,client.id -> wheather-analytics-poc-consumer,ssl.endpoint.identification.algorithm -> HTTPS,key.serializer -> org.apache.kafka.common.serialization.StringSerializer,sasl.jaas.config -> org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;,sasl.mechanism -> PLAIN,security.protocol -> SASL_SSL,bootstrap.servers -> broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,enable.auto.commit -> false,value.serializer -> org.apache.kafka.common.serialization.StringSerializer,ssl.protocol -> TLSv1.2,acks -> -1,keyDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@702a433f),valueDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@1580c408),pollInterval=50 milliseconds,pollTimeout=50 milliseconds,stopTimeout=30 seconds,closeTimeout=20 seconds,commitTimeout=15 seconds,commitRefreshInterval=Duration.Inf,dispatcher=akka.kafka.default-dispatcher,commitTimeWarning=1 second,waitClosePartition=500 milliseconds,metadataRequestTimeout=5 seconds,drainingCheckInterval=30 milliseconds)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Assigned partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0). All partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Requesting messages, requestId: 1, partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+^C
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get -n analytics-poc pods
+NAME                                                              READY   STATUS    RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-cdx6h                         1/1     Running   0          60m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-czwtk         2/2     Running   0          60m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-lh29j   1/1     Running   0          60m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-5v5vg          1/1     Running   0          60m
+analytics-ingest-prometheus-server-c9668c4df-kzjh7                2/2     Running   0          60m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km   1/1     Running   0          60m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-6g675   1/1     Running   0          60m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g   1/1     Running   0          60m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-56mst   1/1     Running   0          60m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6z7ng   1/1     Running   0          60m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-9t42q   1/1     Running   0          60m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-bjh49   1/1     Running   0          60m
+analytics-poc-ingest-time-bucket-aggregation-deployment-566wwlt   1/1     Running   0          60m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56946cq   1/1     Running   0          60m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx   1/1     Running   0          60m
+analytics-queue-receiver-poc-deployment-677b4478-64hb7            1/1     Running   0          60m
+analytics-queue-receiver-poc-deployment-677b4478-ntg7m            1/1     Running   0          60m
+analytics-queue-receiver-poc-deployment-677b4478-sx4qq            1/1     Running   0          60m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx ;2C;2C;2C--namespace analytics-poc
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+[INFO ] - 2019-12-17 14:14:02,662 - akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,671 - akka.event.EventStream - logger log1-Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,673 - akka.event.EventStream - Default Loggers started
+[WARN ] - 2019-12-17 14:14:02,707 - akka.util.ManifestInfo - Detected possible incompatible versions on the classpath. Please note that a given Akka version MUST be the same across all modules of Akka that you are using, e.g. if you use [2.5.25] all other modules that are released together MUST be of the same version. Make sure you're using a compatible set of libraries. Possibly conflicting versions [2.5.25, 2.5.23] in libraries [akka-protobuf:2.5.25, akka-actor:2.5.25, akka-slf4j:2.5.23, akka-stream:2.5.25]
+[DEBUG] - 2019-12-17 14:14:03,418 - akka.kafka.internal.KafkaConsumerActor - Creating Kafka consumer with akka.kafka.ConsumerSettings(properties=auto.offset.reset -> earliest,client.dns.lookup -> use_all_dns_ips,group.id -> time-bucket-aggregation-bar-android-group,ssl.enabled.protocols -> TLSv1.2,client.id -> wheather-analytics-poc-consumer,ssl.endpoint.identification.algorithm -> HTTPS,key.serializer -> org.apache.kafka.common.serialization.StringSerializer,sasl.jaas.config -> org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;,sasl.mechanism -> PLAIN,security.protocol -> SASL_SSL,bootstrap.servers -> broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,enable.auto.commit -> false,value.serializer -> org.apache.kafka.common.serialization.StringSerializer,ssl.protocol -> TLSv1.2,acks -> -1,keyDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@702a433f),valueDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@1580c408),pollInterval=50 milliseconds,pollTimeout=50 milliseconds,stopTimeout=30 seconds,closeTimeout=20 seconds,commitTimeout=15 seconds,commitRefreshInterval=Duration.Inf,dispatcher=akka.kafka.default-dispatcher,commitTimeWarning=1 second,waitClosePartition=500 milliseconds,metadataRequestTimeout=5 seconds,drainingCheckInterval=30 milliseconds)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Assigned partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0). All partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Requesting messages, requestId: 1, partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+^C
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+[INFO ] - 2019-12-17 14:14:02,662 - akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,671 - akka.event.EventStream - logger log1-Slf4jLogger started
+[DEBUG] - 2019-12-17 14:14:02,673 - akka.event.EventStream - Default Loggers started
+[WARN ] - 2019-12-17 14:14:02,707 - akka.util.ManifestInfo - Detected possible incompatible versions on the classpath. Please note that a given Akka version MUST be the same across all modules of Akka that you are using, e.g. if you use [2.5.25] all other modules that are released together MUST be of the same version. Make sure you're using a compatible set of libraries. Possibly conflicting versions [2.5.25, 2.5.23] in libraries [akka-protobuf:2.5.25, akka-actor:2.5.25, akka-slf4j:2.5.23, akka-stream:2.5.25]
+[DEBUG] - 2019-12-17 14:14:03,418 - akka.kafka.internal.KafkaConsumerActor - Creating Kafka consumer with akka.kafka.ConsumerSettings(properties=auto.offset.reset -> earliest,client.dns.lookup -> use_all_dns_ips,group.id -> time-bucket-aggregation-bar-android-group,ssl.enabled.protocols -> TLSv1.2,client.id -> wheather-analytics-poc-consumer,ssl.endpoint.identification.algorithm -> HTTPS,key.serializer -> org.apache.kafka.common.serialization.StringSerializer,sasl.jaas.config -> org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;,sasl.mechanism -> PLAIN,security.protocol -> SASL_SSL,bootstrap.servers -> broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,enable.auto.commit -> false,value.serializer -> org.apache.kafka.common.serialization.StringSerializer,ssl.protocol -> TLSv1.2,acks -> -1,keyDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@702a433f),valueDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@1580c408),pollInterval=50 milliseconds,pollTimeout=50 milliseconds,stopTimeout=30 seconds,closeTimeout=20 seconds,commitTimeout=15 seconds,commitRefreshInterval=Duration.Inf,dispatcher=akka.kafka.default-dispatcher,commitTimeWarning=1 second,waitClosePartition=500 milliseconds,metadataRequestTimeout=5 seconds,drainingCheckInterval=30 milliseconds)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Assigned partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0). All partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+[DEBUG] - 2019-12-17 14:14:08,729 - akka.kafka.internal.SingleSourceLogic - Requesting messages, requestId: 1, partitions: Set(encrypted-multiple-bar-android-2, encrypted-multiple-bar-android-1, encrypted-multiple-bar-android-0)
+^[[A^[[A^[[A^[[A^C
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.209.198.40:10250/containerLogs/analytics-poc/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km/analytics-poc-ingest-etl-encryption?follow=true: dial tcp 10.209.198.40:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe pod analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km --namespace analytics-poc
+Name:           analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km
+Namespace:      analytics-poc
+Priority:       0
+Node:           10.209.198.40/10.209.198.40
+Start Time:     Tue, 17 Dec 2019 09:13:54 -0500
+Labels:         app=analytics-poc-ingest-etl-encryption
+                pod-template-hash=6bdf9c8b98
+                project-name=analytics-ingest-poc
+Annotations:    kubernetes.io/psp: ibm-privileged-psp
+Status:         Running
+IP:             172.30.243.170
+Controlled By:  ReplicaSet/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98
+Containers:
+  analytics-poc-ingest-etl-encryption:
+    Container ID:   containerd://b8efa594887ede3aa5cf732af50f09fc72ff09aa3503fbbeb9298fb3eddeae3b
+    Image:          us.icr.io/icm-analytics-ingest-poc-aj/analytics-poc-ingest-etl-encryption:0.0.7
+    Image ID:       us.icr.io/icm-analytics-ingest-poc-aj/analytics-poc-ingest-etl-encryption@sha256:551d9d4b5b24ceb7f3911697f518372ba69f03793242db892890c5efe142946e
+    Port:           9095/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 17 Dec 2019 09:14:02 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INCOME_BAR_TOPIC:         multiple-bar-android
+      OUTCOME_BAR_TOPIC:        encrypted-multiple-bar-android
+      CONSUMER_GROUP:           etl-encryption-bar-android-group
+      KAFKA_BOOTSTRAP_SERVERS:  broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093
+      KAFKA_SASL_JAAS_CONFIG:   org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-qjw22 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-qjw22:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-qjw22
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 600s
+                 node.kubernetes.io/unreachable:NoExecute for 600s
+Events:          <none>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get -n analytics-poc pods
+NAME                                                              READY   STATUS    RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-cdx6h                         1/1     Running   0          82m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-czwtk         2/2     Running   0          82m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-lh29j   1/1     Running   0          82m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-5v5vg          1/1     Running   0          82m
+analytics-ingest-prometheus-server-c9668c4df-kzjh7                2/2     Running   0          82m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km   1/1     Running   0          82m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-6g675   1/1     Running   0          82m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g   1/1     Running   0          82m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-56mst   1/1     Running   0          82m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6z7ng   1/1     Running   0          82m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-9t42q   1/1     Running   0          82m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-bjh49   1/1     Running   0          82m
+analytics-poc-ingest-time-bucket-aggregation-deployment-566wwlt   1/1     Running   0          82m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56946cq   1/1     Running   0          82m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56dhzvx   1/1     Running   0          82m
+analytics-queue-receiver-poc-deployment-677b4478-64hb7            1/1     Running   0          82m
+analytics-queue-receiver-poc-deployment-677b4478-ntg7m            1/1     Running   0          82m
+analytics-queue-receiver-poc-deployment-677b4478-sx4qq            1/1     Running   0          82m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f --namespace analytics-poc analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.74.225.26:10250/containerLogs/analytics-poc/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g/analytics-poc-ingest-etl-encryption?follow=true: dial tcp 10.74.225.26:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f --namespace analytics-poc analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.74.225.26:10250/containerLogs/analytics-poc/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xfs7g/analytics-poc-ingest-etl-encryption?follow=true: dial tcp 10.74.225.26:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f --namespace analytics-poc analytics-poc-ingest-parquet-writer-deployment-747bf44df4-56mst
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.209.198.41:10250/containerLogs/analytics-poc/analytics-poc-ingest-parquet-writer-deployment-747bf44df4-56mst/analytics-poc-ingest-parquet-writer?follow=true: dial tcp 10.209.198.41:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f --namespace analytics-poc 
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+error: expected 'logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]'.
+POD or TYPE/NAME is a required argument for the logs command
+See 'kubectl logs -h' for help and examples
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl deacribe -f --namespace analytics-poc analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km 
+Error: unknown command "deacribe" for "kubectl"
+
+Did you mean this?
+	describe
+
+Run 'kubectl --help' for usage.
+unknown command "deacribe" for "kubectl"
+
+Did you mean this?
+	describe
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl deacribe -f --namespace analytics-poc pod  analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km 
+Error: unknown command "deacribe" for "kubectl"
+
+Did you mean this?
+	describe
+
+Run 'kubectl --help' for usage.
+unknown command "deacribe" for "kubectl"
+
+Did you mean this?
+	describe
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe -f --namespace analytics-poc pod  analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km 
+error: the path "--namespace" does not exist
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe pod  --namespace analytics-poc  analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km 
+Name:           analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km
+Namespace:      analytics-poc
+Priority:       0
+Node:           10.209.198.40/10.209.198.40
+Start Time:     Tue, 17 Dec 2019 09:13:54 -0500
+Labels:         app=analytics-poc-ingest-etl-encryption
+                pod-template-hash=6bdf9c8b98
+                project-name=analytics-ingest-poc
+Annotations:    kubernetes.io/psp: ibm-privileged-psp
+Status:         Running
+IP:             172.30.243.170
+Controlled By:  ReplicaSet/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98
+Containers:
+  analytics-poc-ingest-etl-encryption:
+    Container ID:   containerd://b8efa594887ede3aa5cf732af50f09fc72ff09aa3503fbbeb9298fb3eddeae3b
+    Image:          us.icr.io/icm-analytics-ingest-poc-aj/analytics-poc-ingest-etl-encryption:0.0.7
+    Image ID:       us.icr.io/icm-analytics-ingest-poc-aj/analytics-poc-ingest-etl-encryption@sha256:551d9d4b5b24ceb7f3911697f518372ba69f03793242db892890c5efe142946e
+    Port:           9095/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 17 Dec 2019 09:14:02 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      INCOME_BAR_TOPIC:         multiple-bar-android
+      OUTCOME_BAR_TOPIC:        encrypted-multiple-bar-android
+      CONSUMER_GROUP:           etl-encryption-bar-android-group
+      KAFKA_BOOTSTRAP_SERVERS:  broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093
+      KAFKA_SASL_JAAS_CONFIG:   org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-qjw22 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-qjw22:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-qjw22
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 600s
+                 node.kubernetes.io/unreachable:NoExecute for 600s
+Events:          <none>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe pod  --namespace analytics-poc  analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km -c analytics-poc-ingest-etl-encryption
+Error: unknown shorthand flag: 'c' in -c
+
+
+Examples:
+  # Describe a node
+  kubectl describe nodes kubernetes-node-emt8.c.myproject.internal
+  
+  # Describe a pod
+  kubectl describe pods/nginx
+  
+  # Describe a pod identified by type and name in "pod.json"
+  kubectl describe -f pod.json
+  
+  # Describe all pods
+  kubectl describe pods
+  
+  # Describe pods by label name=myLabel
+  kubectl describe po -l name=myLabel
+  
+  # Describe all pods managed by the 'frontend' replication controller (rc-created pods
+  # get the name of the rc as a prefix in the pod the name).
+  kubectl describe pods frontend
+
+Options:
+  -A, --all-namespaces=false: If present, list the requested object(s) across all namespaces. Namespace in current context is ignored even if specified with --namespace.
+  -f, --filename=[]: Filename, directory, or URL to files containing the resource to describe
+  -k, --kustomize='': Process the kustomization directory. This flag can't be used together with -f or -R.
+  -R, --recursive=false: Process the directory used in -f, --filename recursively. Useful when you want to manage related manifests organized within the same directory.
+  -l, --selector='': Selector (label query) to filter on, supports '=', '==', and '!='.(e.g. -l key1=value1,key2=value2)
+      --show-events=true: If true, display events related to the described object.
+
+Usage:
+  kubectl describe (-f FILENAME | TYPE [NAME_PREFIX | -l label] | TYPE/NAME) [options]
+
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+
+unknown shorthand flag: 'c' in -c
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get services -n analytics-poc
+NAME                                             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)             AGE
+analytics-ingest-grafana                         ClusterIP   172.21.109.107   <none>        80/TCP              114m
+analytics-ingest-prometheus-alertmanager         ClusterIP   172.21.50.154    <none>        80/TCP              114m
+analytics-ingest-prometheus-kube-state-metrics   ClusterIP   None             <none>        80/TCP              114m
+analytics-ingest-prometheus-pushgateway          ClusterIP   172.21.249.204   <none>        9091/TCP            114m
+analytics-ingest-prometheus-server               ClusterIP   172.21.2.86      <none>        80/TCP              114m
+analytics-poc-ingest-etl-encryption              NodePort    172.21.73.115    <none>        9095:32037/TCP      114m
+analytics-poc-ingest-parquet-writer              NodePort    172.21.7.125     <none>        9095:30508/TCP      114m
+analytics-poc-ingest-time-bucket-aggregation     NodePort    172.21.244.16    <none>        9095:32203/TCP      114m
+analytics-queue-receiver-poc                     ClusterIP   172.21.196.226   <none>        9090/TCP,9095/TCP   114m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get nodes
+NAME            STATUS   ROLES    AGE     VERSION
+10.209.198.38   Ready    <none>   6d23h   v1.14.9+IKS
+10.209.198.40   Ready    <none>   6d23h   v1.14.9+IKS
+10.209.198.41   Ready    <none>   6d23h   v1.14.9+IKS
+10.74.225.16    Ready    <none>   6d23h   v1.14.9+IKS
+10.74.225.22    Ready    <none>   6d23h   v1.14.9+IKS
+10.74.225.26    Ready    <none>   6d22h   v1.14.9+IKS
+10.94.242.142   Ready    <none>   6d23h   v1.14.9+IKS
+10.94.242.151   Ready    <none>   6d23h   v1.14.9+IKS
+10.94.242.157   Ready    <none>   6d23h   v1.14.9+IKS
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe nodes 10.209.198.40 
+Name:               10.209.198.40
+Roles:              <none>
+Labels:             arch=amd64
+                    beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=m3c.16x128.encrypted
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-south
+                    failure-domain.beta.kubernetes.io/zone=dal13
+                    ibm-cloud.kubernetes.io/encrypted-docker-data=true
+                    ibm-cloud.kubernetes.io/external-ip=169.62.198.246
+                    ibm-cloud.kubernetes.io/ha-worker=true
+                    ibm-cloud.kubernetes.io/iaas-provider=softlayer
+                    ibm-cloud.kubernetes.io/internal-ip=10.209.198.40
+                    ibm-cloud.kubernetes.io/machine-type=m3c.16x128.encrypted
+                    ibm-cloud.kubernetes.io/os=UBUNTU_18_64
+                    ibm-cloud.kubernetes.io/region=us-south
+                    ibm-cloud.kubernetes.io/sgx-enabled=false
+                    ibm-cloud.kubernetes.io/worker-id=kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555
+                    ibm-cloud.kubernetes.io/worker-pool-id=bnnsrihd0lqv64k0aj8g-153e226
+                    ibm-cloud.kubernetes.io/worker-pool-name=default
+                    ibm-cloud.kubernetes.io/worker-version=1.14.9_1542
+                    ibm-cloud.kubernetes.io/zone=dal13
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=10.209.198.40
+                    kubernetes.io/os=linux
+                    privateVLAN=2739492
+                    publicVLAN=2739490
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 10 Dec 2019 12:12:27 -0500
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Tue, 17 Dec 2019 11:25:20 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Tue, 17 Dec 2019 11:25:20 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Tue, 17 Dec 2019 11:25:20 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Tue, 17 Dec 2019 11:25:20 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletReady                 kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:  10.209.198.40
+  ExternalIP:  169.62.198.246
+  Hostname:    10.209.198.40
+Capacity:
+ cpu:                16
+ ephemeral-storage:  102685624Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             132004056Ki
+ pods:               160
+Allocatable:
+ cpu:                15880m
+ ephemeral-storage:  99892574949
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             122262744Ki
+ pods:               160
+System Info:
+ Machine ID:                 eceece5e56eb4080a6cbd31980aa15d1
+ System UUID:                2463C552-14B0-26C6-11A5-B93AA2B4E3A3
+ Boot ID:                    b64c0b74-c6e5-4dac-9ec3-6e6901a19cc6
+ Kernel Version:             4.15.0-72-generic
+ OS Image:                   Ubuntu 18.04.3 LTS
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  containerd://1.2.11
+ Kubelet Version:            v1.14.9+IKS
+ Kube-Proxy Version:         v1.14.9+IKS
+ProviderID:                  ibm://b5ecedf6a6bc4b7797bfd611e246f418///bnnsrihd0lqv64k0aj8g/kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555
+Non-terminated Pods:         (7 in total)
+  Namespace                  Name                                                               CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----                                                               ------------  ----------  ---------------  -------------  ---
+  analytics-poc              analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km    0 (0%)        0 (0%)      0 (0%)           0 (0%)         132m
+  ibm-system                 ibm-cloud-provider-ip-169-62-178-210-b85b944b5-ltp4w               5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         6d23h
+  kube-system                calico-node-l6n9w                                                  250m (1%)     0 (0%)      80Mi (0%)        0 (0%)         6d23h
+  kube-system                ibm-keepalived-watcher-859bh                                       5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         6d23h
+  kube-system                ibm-master-proxy-static-10.209.198.40                              25m (0%)      300m (1%)   32M (0%)         512M (0%)      6d23h
+  kube-system                ibmcloud-iks-debug-daemonset-tpr98                                 0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d
+  kube-system                public-crbnnsrihd0lqv64k0aj8g-alb3-6b58c44769-v9p9t                10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         6d23h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests       Limits
+  --------           --------       ------
+  cpu                295m (1%)      300m (1%)
+  memory             236050Ki (0%)  512M (0%)
+  ephemeral-storage  0 (0%)         0 (0%)
+Events:              <none>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ curl https://containers.cloud.ibm.com/v1/
+<html>
+<pre>                                  )___(
+                           _______/__/_
+                  ___     /===========|   ___
+ ____       __   [\\\]___/____________|__[///]   __
+ \   \_____[\\]__/___________________________\__[//]___
+  \                                                    |
+   \                                                  /
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</pre>
+<pre>
+                                    ]+[
+                                   --|--
+                                   |_|__|
+                                   |____|
+____________________________________|  |_______________________________
+  \                   \                        (______)               /
+__~~~~~~~~~OOooo_______\__________________________________________~~~~ooo__
+
+</pre>
+<pre>
+                                 o o
+                                 o ooo
+                                   o oo
+                                      o o      |   #)
+                                       oo     _|_|_#_
+                                         o   |       |
+    __                    ___________________|       |_________________
+   |   -_______-----------                                              \
+   |    _____                                                            )
+   |__ -     ---------_________________________________________________ /
+ </pre>
+<pre>                                     |__
+                                     |\/
+                                     ---
+                                     / | [
+                              !      | |||
+                            _/|     _/|-++'
+                        +  +--|    |--|--|_ |-
+                     { /|__|  |/\__|  |--- |||__/
+                    +---------------___[}-_===_.'____               /\
+                ____`-' ||___-{]_| _[}-  |     |_[___\==--          \/   __
+ __..._____--==/___]_|__|_____________________________[___\==--___,-----' /
+|                                                                        /
+ \_______________________________________________________________________|
+</pre>
+</html>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks cluster ls
+
+Plug-in 'container-service 0.4.64' is now available (you have 0.4.23).
+Use 'ibmcloud plugin update container-service' to upgrade the plug-in.
+Use 'ibmcloud config --check-version=false' to disable update check.
+
+
+Plugin version 0.4.64 is now available. To update run: ibmcloud plugin update kubernetes-service
+
+Kubernetes version 1.16 has removed deprecated APIs. For more information, see <http://ibm.biz/k8s-1-16-apis>
+
+OK
+Name                     ID                     State     Created        Workers   Location   Version       Resource Group Name   Provider   
+mycluster                bm1u9prd0f7k8qgu9f00   pending   2 months ago   6         Dallas     1.14.9_1541   Default               classic   
+twc-cicd-trial-cluster   bnnsrihd0lqv64k0aj8g   normal    6 days ago     9         Dallas     1.14.9_1541   Default               classic   
+twc-oap-cluster          bn1mshrd0o9ielralfi0   normal    1 month ago    3         Dallas     1.14.9_1541   Default               classic   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list
+ID        identifier       type                 network_space   datacenter   vlan_id   IPs   hardware   virtual_servers   
+1005983   10.146.38.192    ADDITIONAL_PRIMARY   PRIVATE         dal06        2739244   64    0          1   
+1760233   10.74.55.200     SECONDARY_ON_VLAN    PRIVATE         dal12        2765002   8     0          0   
+1870681   10.209.9.80      SECONDARY_ON_VLAN    PRIVATE         dal13        2739492   8     0          0   
+1959607   10.94.242.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2705304   64    0          12   
+2079961   169.47.214.224   SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2139599   10.209.198.0     ADDITIONAL_PRIMARY   PRIVATE         dal13        2739492   64    0          6   
+2159583   10.171.115.176   SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2210598   10.74.225.0      ADDITIONAL_PRIMARY   PRIVATE         dal12        2765002   64    0          3   
+2212372   169.62.198.240   ADDITIONAL_PRIMARY   PUBLIC          dal13        2739490   16    0          6   
+2218682   10.171.131.24    SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2226608   52.117.149.208   ADDITIONAL_PRIMARY   PUBLIC          dal10        2705302   16    0          12   
+2242302   169.48.165.40    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2296034   169.45.10.32     ADDITIONAL_PRIMARY   PUBLIC          dal06        2739242   16    0          1   
+2297368   150.238.2.112    ADDITIONAL_PRIMARY   PUBLIC          dal10        2739486   16    0          1   
+2300552   10.221.26.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2739488   64    0          1   
+2313056   10.171.57.0      SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2319658   169.62.178.208   SECONDARY_ON_VLAN    PUBLIC          dal13        2739490   8     0          0   
+2339352   52.116.243.96    ADDITIONAL_PRIMARY   PUBLIC          dal12        2765000   16    0          3   
+2339794   169.59.195.216   SECONDARY_ON_VLAN    PUBLIC          dal12        2765000   8     0          0   
+2341406   169.47.248.24    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks worker ls --cluster twc-cicd-trial-cluster
+OK
+ID                                                       Public IP        Private IP      Flavor                 State    Status   Zone    Version   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000138   52.117.149.222   10.94.242.142   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000002c9   52.117.149.214   10.94.242.151   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-0000037b   52.117.149.221   10.94.242.157   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447   169.62.198.245   10.209.198.38   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555   169.62.198.246   10.209.198.40   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000649   169.62.198.247   10.209.198.41   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000007c7   52.116.243.98    10.74.225.16    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000008da   52.116.243.106   10.74.225.22    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000009f4   52.116.243.107   10.74.225.26    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep -e <networkID1> -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447
+-bash: networkID1: No such file or directory
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep  -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep
+usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+	[-e pattern] [-f file] [--binary-files=value] [--color=when]
+	[--context[=num]] [--directories=action] [--label] [--line-buffered]
+	[--null] [pattern] [file ...]
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447 -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555  
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447 -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000138
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000009f4 -e kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000138
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list
+ID        identifier       type                 network_space   datacenter   vlan_id   IPs   hardware   virtual_servers   
+1005983   10.146.38.192    ADDITIONAL_PRIMARY   PRIVATE         dal06        2739244   64    0          1   
+1760233   10.74.55.200     SECONDARY_ON_VLAN    PRIVATE         dal12        2765002   8     0          0   
+1870681   10.209.9.80      SECONDARY_ON_VLAN    PRIVATE         dal13        2739492   8     0          0   
+1959607   10.94.242.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2705304   64    0          12   
+2079961   169.47.214.224   SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2139599   10.209.198.0     ADDITIONAL_PRIMARY   PRIVATE         dal13        2739492   64    0          6   
+2159583   10.171.115.176   SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2210598   10.74.225.0      ADDITIONAL_PRIMARY   PRIVATE         dal12        2765002   64    0          3   
+2212372   169.62.198.240   ADDITIONAL_PRIMARY   PUBLIC          dal13        2739490   16    0          6   
+2218682   10.171.131.24    SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2226608   52.117.149.208   ADDITIONAL_PRIMARY   PUBLIC          dal10        2705302   16    0          12   
+2242302   169.48.165.40    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2296034   169.45.10.32     ADDITIONAL_PRIMARY   PUBLIC          dal06        2739242   16    0          1   
+2297368   150.238.2.112    ADDITIONAL_PRIMARY   PUBLIC          dal10        2739486   16    0          1   
+2300552   10.221.26.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2739488   64    0          1   
+2313056   10.171.57.0      SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2319658   169.62.178.208   SECONDARY_ON_VLAN    PUBLIC          dal13        2739490   8     0          0   
+2339352   52.116.243.96    ADDITIONAL_PRIMARY   PUBLIC          dal12        2765000   16    0          3   
+2339794   169.59.195.216   SECONDARY_ON_VLAN    PUBLIC          dal12        2765000   8     0          0   
+2341406   169.47.248.24    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks cluster ls
+OK
+Name                     ID                     State     Created        Workers   Location   Version       Resource Group Name   Provider   
+mycluster                bm1u9prd0f7k8qgu9f00   pending   2 months ago   6         Dallas     1.14.9_1541   Default               classic   
+twc-cicd-trial-cluster   bnnsrihd0lqv64k0aj8g   normal    1 week ago     9         Dallas     1.14.9_1541   Default               classic   
+twc-oap-cluster          bn1mshrd0o9ielralfi0   normal    1 month ago    3         Dallas     1.14.9_1541   Default               classic   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks worker ls --cluster twc-oap-cluster
+OK
+ID                                                       Public IP        Private IP      Flavor                State    Status   Zone    Version   
+kube-bn1mshrd0o9ielralfi0-twcoapclust-default-000001f3   52.117.149.220   10.94.242.183   b2c.16x64.encrypted   normal   Ready    dal10   1.14.8_1537*   
+kube-bn1mshrd0o9ielralfi0-twcoapclust-default-00000274   52.117.149.212   10.94.242.177   b2c.16x64.encrypted   normal   Ready    dal10   1.14.8_1537*   
+kube-bn1mshrd0o9ielralfi0-twcoapclust-default-000003f4   52.117.149.217   10.94.242.163   b2c.16x64.encrypted   normal   Ready    dal10   1.14.8_1537*   
+
+* To update to 1.14.9_1542 version, run 'ibmcloud ks worker-update'. Review and make any required version changes before you update: ibm.biz/upworker
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list | grep -e kube-bn1mshrd0o9ielralfi0-twcoapclust-default-000001f3
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud sl subnet list
+ID        identifier       type                 network_space   datacenter   vlan_id   IPs   hardware   virtual_servers   
+1005983   10.146.38.192    ADDITIONAL_PRIMARY   PRIVATE         dal06        2739244   64    0          1   
+1760233   10.74.55.200     SECONDARY_ON_VLAN    PRIVATE         dal12        2765002   8     0          0   
+1870681   10.209.9.80      SECONDARY_ON_VLAN    PRIVATE         dal13        2739492   8     0          0   
+1959607   10.94.242.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2705304   64    0          12   
+2079961   169.47.214.224   SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2139599   10.209.198.0     ADDITIONAL_PRIMARY   PRIVATE         dal13        2739492   64    0          6   
+2159583   10.171.115.176   SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2210598   10.74.225.0      ADDITIONAL_PRIMARY   PRIVATE         dal12        2765002   64    0          3   
+2212372   169.62.198.240   ADDITIONAL_PRIMARY   PUBLIC          dal13        2739490   16    0          6   
+2218682   10.171.131.24    SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2226608   52.117.149.208   ADDITIONAL_PRIMARY   PUBLIC          dal10        2705302   16    0          12   
+2242302   169.48.165.40    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+2296034   169.45.10.32     ADDITIONAL_PRIMARY   PUBLIC          dal06        2739242   16    0          1   
+2297368   150.238.2.112    ADDITIONAL_PRIMARY   PUBLIC          dal10        2739486   16    0          1   
+2300552   10.221.26.128    ADDITIONAL_PRIMARY   PRIVATE         dal10        2739488   64    0          1   
+2313056   10.171.57.0      SECONDARY_ON_VLAN    PRIVATE         dal10        2705304   8     0          0   
+2319658   169.62.178.208   SECONDARY_ON_VLAN    PUBLIC          dal13        2739490   8     0          0   
+2339352   52.116.243.96    ADDITIONAL_PRIMARY   PUBLIC          dal12        2765000   16    0          3   
+2339794   169.59.195.216   SECONDARY_ON_VLAN    PUBLIC          dal12        2765000   8     0          0   
+2341406   169.47.248.24    SECONDARY_ON_VLAN    PUBLIC          dal10        2705302   8     0          0   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ curl https://us.icr.io/api/v1/messages
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks cluster ls
+OK
+Name                     ID                     State     Created        Workers   Location   Version        Resource Group Name   Provider   
+mycluster                bm1u9prd0f7k8qgu9f00   pending   2 months ago   6         Dallas     1.14.9_1541*   Default               classic   
+twc-cicd-trial-cluster   bnnsrihd0lqv64k0aj8g   normal    1 week ago     9         Dallas     1.14.9_1541*   Default               classic   
+twc-oap-cluster          bn1mshrd0o9ielralfi0   normal    1 month ago    3         Dallas     1.14.9_1541    Default               classic   
+
+* An update is available for the cluster. To view the update version, run 'ibmcloud ks cluster-get --cluster <cluster name>'. Review and make any required version changes before you update: ibm.biz/iks-versions
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks cluster get --cluster twc-cicd-trial-cluster
+Retrieving cluster twc-cicd-trial-cluster...
+OK
+                                   
+Name:                           twc-cicd-trial-cluster   
+ID:                             bnnsrihd0lqv64k0aj8g   
+State:                          normal   
+Created:                        2019-12-10T16:55:21+0000   
+Location:                       dal10   
+Master URL:                     https://c7.us-south.containers.cloud.ibm.com:22437   
+Public Service Endpoint URL:    https://c7.us-south.containers.cloud.ibm.com:22437   
+Private Service Endpoint URL:   -   
+Master Location:                Dallas   
+Master Status:                  Ready (1 week ago)   
+Master State:                   deployed   
+Master Health:                  normal   
+Ingress Subdomain:              twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001.us-south.containers.appdomain.cloud   
+Ingress Secret:                 twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001   
+Workers:                        9   
+Worker Zones:                   dal10, dal12, dal13   
+Version:                        1.14.9_1541* (1.14.9_1543 latest)   
+Creator:                        sdhulipudi@us.ibm.com   
+Monitoring Dashboard:           -   
+Resource Group ID:              c66327a3523043c39a6411a787915d5a   
+Resource Group Name:            Default   
+
+*To update to 1.14.9_1543 version, run 'ibmcloud ks cluster-update --cluster twc-cicd-trial-cluster --kube-version 1.14.9_1543'. Review and make any required version changes before you update: ibm.biz/iks-versions
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ curl --insecure  https://c7.us-south.containers.cloud.ibm.com:22437/version
+{
+  "major": "1",
+  "minor": "14",
+  "gitVersion": "v1.14.9+IKS",
+  "gitCommit": "405ef9ab782f5b51dff56dabe3628585d99afbfa",
+  "gitTreeState": "clean",
+  "buildDate": "2019-11-13T21:34:44Z",
+  "goVersion": "go1.12.12",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ curl --insecure https://c7.us-south.containers.cloud.ibm.com:22437/version
+{
+  "major": "1",
+  "minor": "14",
+  "gitVersion": "v1.14.9+IKS",
+  "gitCommit": "405ef9ab782f5b51dff56dabe3628585d99afbfa",
+  "gitTreeState": "clean",
+  "buildDate": "2019-11-13T21:34:44Z",
+  "goVersion": "go1.12.12",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks worker ls --cluster twc-cicd-trial-cluster
+OK
+ID                                                       Public IP        Private IP      Flavor                 State    Status   Zone    Version   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000138   52.117.149.222   10.94.242.142   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000002c9   52.117.149.214   10.94.242.151   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-0000037b   52.117.149.221   10.94.242.157   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447   169.62.198.245   10.209.198.38   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555   169.62.198.246   10.209.198.40   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000649   169.62.198.247   10.209.198.41   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000007c7   52.116.243.98    10.74.225.16    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000008da   52.116.243.106   10.74.225.22    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000009f4   52.116.243.107   10.74.225.26    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get serviceaccount -n kube-system | grep tiller
+tiller                               1         4d3h
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks worker ls --cluster twc-cicd-trial-cluster twc-cicd-trial-cluster 
+OK
+ID                                                       Public IP        Private IP      Flavor                 State    Status   Zone    Version   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000138   52.117.149.222   10.94.242.142   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000002c9   52.117.149.214   10.94.242.151   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-0000037b   52.117.149.221   10.94.242.157   m3c.16x128.encrypted   normal   Ready    dal10   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447   169.62.198.245   10.209.198.38   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555   169.62.198.246   10.209.198.40   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000649   169.62.198.247   10.209.198.41   m3c.16x128.encrypted   normal   Ready    dal13   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000007c7   52.116.243.98    10.74.225.16    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000008da   52.116.243.106   10.74.225.22    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-000009f4   52.116.243.107   10.74.225.26    m3c.16x128.encrypted   normal   Ready    dal12   1.14.9_1542   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$  ibmcloud ks cluster get --show-resources twc-cicd-trial-cluster
+Retrieving cluster twc-cicd-trial-cluster and all its resources...
+OK
+                                   
+Name:                           twc-cicd-trial-cluster   
+ID:                             bnnsrihd0lqv64k0aj8g   
+State:                          normal   
+Created:                        2019-12-10T16:55:21+0000   
+Location:                       dal10   
+Master URL:                     https://c7.us-south.containers.cloud.ibm.com:22437   
+Public Service Endpoint URL:    https://c7.us-south.containers.cloud.ibm.com:22437   
+Private Service Endpoint URL:   -   
+Master Location:                Dallas   
+Master Status:                  Ready (1 week ago)   
+Master State:                   deployed   
+Master Health:                  normal   
+Ingress Subdomain:              twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001.us-south.containers.appdomain.cloud   
+Ingress Secret:                 twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001   
+Workers:                        9   
+Worker Zones:                   dal10, dal12, dal13   
+Version:                        1.14.9_1541* (1.14.9_1543 latest)   
+Creator:                        sdhulipudi@us.ibm.com   
+Monitoring Dashboard:           -   
+Resource Group ID:              c66327a3523043c39a6411a787915d5a   
+Resource Group Name:            Default   
+
+*To update to 1.14.9_1543 version, run 'ibmcloud ks cluster-update --cluster twc-cicd-trial-cluster --kube-version 1.14.9_1543'. Review and make any required version changes before you update: ibm.biz/iks-versions
+
+
+Addons
+Name         Enabled   
+debug-tool   true   
+
+Subnet VLANs
+VLAN ID   Subnet CIDR         Public   User-managed   
+2739490   169.62.178.208/29   true     false   
+2765000   169.59.195.216/29   true     false   
+2705304   10.171.57.0/29      false    false   
+2739492   10.209.9.80/29      false    false   
+2765002   10.74.55.200/29     false    false   
+2705302   169.47.248.24/29    true     false   
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ibmcloud ks cluster get -c twc-cicd-trial-cluster
+Retrieving cluster twc-cicd-trial-cluster...
+OK
+                                   
+Name:                           twc-cicd-trial-cluster   
+ID:                             bnnsrihd0lqv64k0aj8g   
+State:                          normal   
+Created:                        2019-12-10T16:55:21+0000   
+Location:                       dal10   
+Master URL:                     https://c7.us-south.containers.cloud.ibm.com:22437   
+Public Service Endpoint URL:    https://c7.us-south.containers.cloud.ibm.com:22437   
+Private Service Endpoint URL:   -   
+Master Location:                Dallas   
+Master Status:                  Ready (1 week ago)   
+Master State:                   deployed   
+Master Health:                  normal   
+Ingress Subdomain:              twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001.us-south.containers.appdomain.cloud   
+Ingress Secret:                 twc-cicd-trial-cluster-e625c1c75db516d8352c73676ec447bb-0001   
+Workers:                        9   
+Worker Zones:                   dal10, dal12, dal13   
+Version:                        1.14.9_1541* (1.14.9_1543 latest)   
+Creator:                        sdhulipudi@us.ibm.com   
+Monitoring Dashboard:           -   
+Resource Group ID:              c66327a3523043c39a6411a787915d5a   
+Resource Group Name:            Default   
+
+*To update to 1.14.9_1543 version, run 'ibmcloud ks cluster-update --cluster twc-cicd-trial-cluster --kube-version 1.14.9_1543'. Review and make any required version changes before you update: ibm.biz/iks-versions
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get svc -n kube-system | grep LoadBalancer
+public-crbnnsrihd0lqv64k0aj8g-alb1   LoadBalancer   172.21.0.207     169.47.248.26    80:32655/TCP,443:30379/TCP   7d3h
+public-crbnnsrihd0lqv64k0aj8g-alb2   LoadBalancer   172.21.200.185   169.59.195.218   80:31405/TCP,443:30230/TCP   7d3h
+public-crbnnsrihd0lqv64k0aj8g-alb3   LoadBalancer   172.21.114.194   169.62.178.210   80:30147/TCP,443:32290/TCP   7d3h
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Oct 17 2019, 17:14:30) 
+[GCC 4.2.1 Compatible Apple LLVM 11.0.0 (clang-1100.0.32.4) (-macos10.15-objc-s on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> ^D
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python version
+/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python: can't open file 'version': [Errno 2] No such file or directory
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python --version
+Python 2.7.16
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~
+Display all 101 possibilities? (y or n)
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~/
+-d                                    .gitbook/                             HelloWorld$.class                     helmfile/
+.%444543B9.png                        .gitconfig                            HelloWorld.class                      ibm-poc-project/
+.Box_EngineServer                     .gradle/                              HelloWorld.scala                      icmaninpoc-project/
+.Box_StreemToSync                     .helm/                                Library/                              images/
+.Box_SyncToStreem                     .ivy2/                                Movies/                               jenkins/
+.Box_UIServer                         .kube/                                Music/                                jenkinshelm/
+.CFUserTextEncoding                   .npm/                                 Pictures/                             jinkinsserver/
+.DS_Store                             .oracle_jre_usage/                    ProjectK8s/                           ksfksserver/
+.Trash/                               .sbt/                                 Public/                               kube-config-hou02-mycluster.yml
+.anyconnect                           .scala_history                        Settings.scala                        kubtera/
+.atom/                                .ssh/                                 cicd-test-poc/                        monitoring/
+.bash_history                         .terraform.d/                         container-service-getting-started-wt/ nazarripo/
+.bash_profile                         .videostream/                         env/                                  poc/
+.bash_profile.backup                  .vim/                                 event-streams-samples/                program/
+.bash_sessions/                       .viminfo                              eventst/                              prometheus/
+.bluemix/                             .vscode/                              gcloud/                               terraform/
+.boto                                 .wget-hsts                            git/                                  terraform_sample/
+.cf/                                  Applications/                         githubripo/                           terraformapp/
+.cisco/                               Box/                                  google-cloud-sdk/                     twcpoc/
+.config/                              Desktop/                              grafana/                              volt/
+.cups/                                Documents/                            grafana-3.8.12.tgz                    
+.docker/                              Downloads/                            helm/                                 
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~/.
+./                    .Box_UIServer         .bash_history         .cf/                  .gitconfig            .oracle_jre_usage/    .vim/
+.%444543B9.png        .CFUserTextEncoding   .bash_profile         .cisco/               .gradle/              .sbt/                 .viminfo
+../                   .DS_Store             .bash_profile.backup  .config/              .helm/                .scala_history        .vscode/
+.Box_EngineServer     .Trash/               .bash_sessions/       .cups/                .ivy2/                .ssh/                 .wget-hsts
+.Box_StreemToSync     .anyconnect           .bluemix/             .docker/              .kube/                .terraform.d/         
+.Box_SyncToStreem     .atom/                .boto                 .gitbook/             .npm/                 .videostream/         
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~/.bash_profile
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~/.bash_profile
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python --version
+Python 2.7.16
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python3 --version
+Python 3.8.0
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ nano ~/.bash_profile
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ python --version
+Python 2.7.16
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server (NotFound): pods "analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km" not found
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl logs
+error: expected 'logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]'.
+POD or TYPE/NAME is a required argument for the logs command
+See 'kubectl logs -h' for help and examples
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f 
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+error: expected 'logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]'.
+POD or TYPE/NAME is a required argument for the logs command
+See 'kubectl logs -h' for help and examples
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl logs -h
+Print the logs for a container in a pod or specified resource. If the pod has only one container, the container name is
+optional.
+
+Aliases:
+logs, log
+
+Examples:
+  # Return snapshot logs from pod nginx with only one container
+  kubectl logs nginx
+  
+  # Return snapshot logs from pod nginx with multi containers
+  kubectl logs nginx --all-containers=true
+  
+  # Return snapshot logs from all containers in pods defined by label app=nginx
+  kubectl logs -lapp=nginx --all-containers=true
+  
+  # Return snapshot of previous terminated ruby container logs from pod web-1
+  kubectl logs -p -c ruby web-1
+  
+  # Begin streaming the logs of the ruby container in pod web-1
+  kubectl logs -f -c ruby web-1
+  
+  # Begin streaming the logs from all containers in pods defined by label app=nginx
+  kubectl logs -f -lapp=nginx --all-containers=true
+  
+  # Display only the most recent 20 lines of output in pod nginx
+  kubectl logs --tail=20 nginx
+  
+  # Show all logs from pod nginx written in the last hour
+  kubectl logs --since=1h nginx
+  
+  # Return snapshot logs from first container of a job named hello
+  kubectl logs job/hello
+  
+  # Return snapshot logs from container nginx-1 of a deployment named nginx
+  kubectl logs deployment/nginx -c nginx-1
+
+Options:
+      --all-containers=false: Get all containers' logs in the pod(s).
+  -c, --container='': Print the logs of this container
+  -f, --follow=false: Specify if the logs should be streamed.
+      --ignore-errors=false: If watching / following pod logs, allow for any errors that occur to be non-fatal
+      --limit-bytes=0: Maximum bytes of logs to return. Defaults to no limit.
+      --max-log-requests=5: Specify maximum number of concurrent logs to follow when using by a selector. Defaults to 5.
+      --pod-running-timeout=20s: The length of time (like 5s, 2m, or 3h, higher than zero) to wait until at least one
+pod is running
+  -p, --previous=false: If true, print the logs for the previous instance of the container in a pod if it exists.
+  -l, --selector='': Selector (label query) to filter on.
+      --since=0s: Only return logs newer than a relative duration like 5s, 2m, or 3h. Defaults to all logs. Only one of
+since-time / since may be used.
+      --since-time='': Only return logs after a specific date (RFC3339). Defaults to all logs. Only one of since-time /
+since may be used.
+      --tail=-1: Lines of recent log file to display. Defaults to -1 with no selector, showing all log lines otherwise
+10, if a selector is provided.
+      --timestamps=false: Include timestamps on each line in the log output
+
+Usage:
+  kubectl logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER] [options]
+
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ analytics-poc-ingest-etl-encryption-deployment-85b9dc87-pv9jc
+-bash: analytics-poc-ingest-etl-encryption-deployment-85b9dc87-pv9jc: command not found
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km --namespace analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server (NotFound): pods "analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-4k6km" not found
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get namespace
+NAME              STATUS   AGE
+analytics-poc     Active   5d4h
+default           Active   8d
+ibm-cert-store    Active   8d
+ibm-system        Active   8d
+kube-node-lease   Active   8d
+kube-public       Active   8d
+kube-system       Active   8d
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pods -n analytics-poc
+NAME                                                              READY   STATUS                 RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-h7p8k                         1/1     Running                0          5h14m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-wqp8l         2/2     Running                0          5h14m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-4wgbb   1/1     Running                0          5h14m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-gxvmz          1/1     Running                0          5h14m
+analytics-ingest-prometheus-server-c9668c4df-z96qr                2/2     Running                0          5h14m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7   1/1     Running                0          5h14m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-lmbns   1/1     Running                0          5h14m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99   1/1     Running                0          5h14m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6fphq   1/1     Running                0          5h14m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-ltrqn   1/1     Running                0          5h14m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-qz8gb   1/1     Running                0          5h14m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-zfhks   1/1     Running                0          5h14m
+analytics-poc-ingest-time-bucket-aggregation-deployment-5656mnl   1/1     Running                0          5h14m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56k7v8h   1/1     Running                0          5h14m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56q7x7z   1/1     Running                0          5h14m
+analytics-queue-receiver-poc-deployment-677b4478-bpx64            1/1     Running                0          5h14m
+analytics-queue-receiver-poc-deployment-677b4478-kh6fv            1/1     Running                0          5h14m
+analytics-queue-receiver-poc-deployment-677b4478-nxsvb            0/1     CreateContainerError   0          5h14m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99 -n analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+[INFO ] - 2019-12-18 15:25:36,892 - akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[DEBUG] - 2019-12-18 15:25:36,904 - akka.event.EventStream - logger log1-Slf4jLogger started
+[DEBUG] - 2019-12-18 15:25:36,907 - akka.event.EventStream - Default Loggers started
+[WARN ] - 2019-12-18 15:25:36,954 - akka.util.ManifestInfo - Detected possible incompatible versions on the classpath. Please note that a given Akka version MUST be the same across all modules of Akka that you are using, e.g. if you use [2.5.25] all other modules that are released together MUST be of the same version. Make sure you're using a compatible set of libraries. Possibly conflicting versions [2.5.25, 2.5.23] in libraries [akka-protobuf:2.5.25, akka-actor:2.5.25, akka-slf4j:2.5.23, akka-stream:2.5.25]
+[DEBUG] - 2019-12-18 15:25:38,047 - akka.kafka.internal.DefaultProducerStage - Initializing transactions
+[DEBUG] - 2019-12-18 15:25:38,070 - akka.kafka.internal.KafkaConsumerActor - Creating Kafka consumer with akka.kafka.ConsumerSettings(properties=auto.offset.reset -> earliest,client.dns.lookup -> use_all_dns_ips,group.id -> etl-encryption-bar-android-group,ssl.enabled.protocols -> TLSv1.2,client.id -> wheather-analytics-poc-consumer,ssl.endpoint.identification.algorithm -> HTTPS,key.serializer -> org.apache.kafka.common.serialization.StringSerializer,sasl.mechanism -> PLAIN,security.protocol -> SASL_SSL,bootstrap.servers -> broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,enable.auto.commit -> false,value.serializer -> org.apache.kafka.common.serialization.StringSerializer,ssl.protocol -> TLSv1.2,acks -> -1,isolation.level -> read_committed,sasl.jaas.config -> org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;,keyDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@1cb751a),valueDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@35865260),pollInterval=50 milliseconds,pollTimeout=50 milliseconds,stopTimeout=30 seconds,closeTimeout=20 seconds,commitTimeout=15 seconds,commitRefreshInterval=Duration.Inf,dispatcher=akka.kafka.default-dispatcher,commitTimeWarning=1 second,waitClosePartition=500 milliseconds,metadataRequestTimeout=5 seconds,drainingCheckInterval=30 milliseconds,connectionCheckerSettings=akka.kafka.ConnectionCheckerSettings(enable=false,maxRetries=3,checkInterval=15 seconds,factor=2.0),partitionHandlerWarning=5 seconds)
+[DEBUG] - 2019-12-18 15:25:38,763 - akka.kafka.internal.DefaultProducerStage - Beginning new transaction
+[DEBUG] - 2019-12-18 15:25:39,319 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained 
+[DEBUG] - 2019-12-18 15:25:43,243 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0). All partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 15:25:43,243 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 1, partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:21:47,218 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0). All partitions: Set()
+[DEBUG] - 2019-12-18 16:21:47,218 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-2,multiple-bar-android-1,multiple-bar-android-0
+[DEBUG] - 2019-12-18 16:21:47,248 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1, multiple-bar-android-0). All partitions: Set(multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:21:47,248 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 2, partitions: Set(multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:22:02,430 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-1, multiple-bar-android-0). All partitions: Set()
+[DEBUG] - 2019-12-18 16:22:02,430 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-1,multiple-bar-android-0
+[DEBUG] - 2019-12-18 16:22:02,651 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1). All partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:02,651 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 3, partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:05,715 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-1). All partitions: Set()
+[DEBUG] - 2019-12-18 16:22:05,715 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-1
+[DEBUG] - 2019-12-18 16:22:05,950 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1). All partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:05,950 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 4, partitions: Set(multiple-bar-android-1)
+    
+
+
+
+
+^C
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ ls
+-d					Pictures				google-cloud-sdk			kube-config-hou02-mycluster.yml
+Applications				ProjectK8s				grafana					kubtera
+Box					Public					grafana-3.8.12.tgz			monitoring
+Desktop					Settings.scala				helm					nazarripo
+Documents				cicd-test-poc				helmfile				poc
+Downloads				container-service-getting-started-wt	ibm-poc-project				program
+HelloWorld$.class			env					icmaninpoc-project			prometheus
+HelloWorld.class			event-streams-samples			images					terraform
+HelloWorld.scala			eventst					jenkins					terraform_sample
+Library					gcloud					jenkinshelm				terraformapp
+Movies					git					jinkinsserver				twcpoc
+Music					githubripo				ksfksserver				volt
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ pwd
+/Users/Ajay.Jayswal@ibm.com
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pods -n analytics-poc
+NAME                                                              READY   STATUS                 RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-h7p8k                         1/1     Running                0          5h22m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-wqp8l         2/2     Running                0          5h22m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-4wgbb   1/1     Running                0          5h22m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-gxvmz          1/1     Running                0          5h22m
+analytics-ingest-prometheus-server-c9668c4df-z96qr                2/2     Running                0          5h22m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7   1/1     Running                0          5h22m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-lmbns   1/1     Running                0          5h22m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99   1/1     Running                0          5h22m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6fphq   1/1     Running                0          5h22m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-ltrqn   1/1     Running                0          5h22m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-qz8gb   1/1     Running                0          5h22m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-zfhks   1/1     Running                0          5h22m
+analytics-poc-ingest-time-bucket-aggregation-deployment-5656mnl   1/1     Running                0          5h22m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56k7v8h   1/1     Running                0          5h22m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56q7x7z   1/1     Running                0          5h22m
+analytics-queue-receiver-poc-deployment-677b4478-bpx64            1/1     Running                0          5h22m
+analytics-queue-receiver-poc-deployment-677b4478-kh6fv            1/1     Running                0          5h22m
+analytics-queue-receiver-poc-deployment-677b4478-nxsvb            0/1     CreateContainerError   0          5h22m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -f analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99 -n analytics-poc
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+[INFO ] - 2019-12-18 15:25:36,892 - akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+[DEBUG] - 2019-12-18 15:25:36,904 - akka.event.EventStream - logger log1-Slf4jLogger started
+[DEBUG] - 2019-12-18 15:25:36,907 - akka.event.EventStream - Default Loggers started
+[WARN ] - 2019-12-18 15:25:36,954 - akka.util.ManifestInfo - Detected possible incompatible versions on the classpath. Please note that a given Akka version MUST be the same across all modules of Akka that you are using, e.g. if you use [2.5.25] all other modules that are released together MUST be of the same version. Make sure you're using a compatible set of libraries. Possibly conflicting versions [2.5.25, 2.5.23] in libraries [akka-protobuf:2.5.25, akka-actor:2.5.25, akka-slf4j:2.5.23, akka-stream:2.5.25]
+[DEBUG] - 2019-12-18 15:25:38,047 - akka.kafka.internal.DefaultProducerStage - Initializing transactions
+[DEBUG] - 2019-12-18 15:25:38,070 - akka.kafka.internal.KafkaConsumerActor - Creating Kafka consumer with akka.kafka.ConsumerSettings(properties=auto.offset.reset -> earliest,client.dns.lookup -> use_all_dns_ips,group.id -> etl-encryption-bar-android-group,ssl.enabled.protocols -> TLSv1.2,client.id -> wheather-analytics-poc-consumer,ssl.endpoint.identification.algorithm -> HTTPS,key.serializer -> org.apache.kafka.common.serialization.StringSerializer,sasl.mechanism -> PLAIN,security.protocol -> SASL_SSL,bootstrap.servers -> broker-3-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-2-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-5-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-4-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-0-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,broker-1-bmwkjsxmndtm8wg0.kafka.svc02.us-south.eventstreams.cloud.ibm.com:9093,enable.auto.commit -> false,value.serializer -> org.apache.kafka.common.serialization.StringSerializer,ssl.protocol -> TLSv1.2,acks -> -1,isolation.level -> read_committed,sasl.jaas.config -> org.apache.kafka.common.security.plain.PlainLoginModule required username=token password=CKdMUCiRtDlqYeDGJ_Z2gU_Ds8AtH_ZAq4lSWlwBa7Np;,keyDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@1cb751a),valueDeserializer=Some(org.apache.kafka.common.serialization.StringDeserializer@35865260),pollInterval=50 milliseconds,pollTimeout=50 milliseconds,stopTimeout=30 seconds,closeTimeout=20 seconds,commitTimeout=15 seconds,commitRefreshInterval=Duration.Inf,dispatcher=akka.kafka.default-dispatcher,commitTimeWarning=1 second,waitClosePartition=500 milliseconds,metadataRequestTimeout=5 seconds,drainingCheckInterval=30 milliseconds,connectionCheckerSettings=akka.kafka.ConnectionCheckerSettings(enable=false,maxRetries=3,checkInterval=15 seconds,factor=2.0),partitionHandlerWarning=5 seconds)
+[DEBUG] - 2019-12-18 15:25:38,763 - akka.kafka.internal.DefaultProducerStage - Beginning new transaction
+[DEBUG] - 2019-12-18 15:25:39,319 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained 
+[DEBUG] - 2019-12-18 15:25:43,243 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0). All partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 15:25:43,243 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 1, partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:21:47,218 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-2, multiple-bar-android-1, multiple-bar-android-0). All partitions: Set()
+[DEBUG] - 2019-12-18 16:21:47,218 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-2,multiple-bar-android-1,multiple-bar-android-0
+[DEBUG] - 2019-12-18 16:21:47,248 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1, multiple-bar-android-0). All partitions: Set(multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:21:47,248 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 2, partitions: Set(multiple-bar-android-1, multiple-bar-android-0)
+[DEBUG] - 2019-12-18 16:22:02,430 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-1, multiple-bar-android-0). All partitions: Set()
+[DEBUG] - 2019-12-18 16:22:02,430 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-1,multiple-bar-android-0
+[DEBUG] - 2019-12-18 16:22:02,651 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1). All partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:02,651 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 3, partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:05,715 - akka.kafka.internal.TransactionalSourceLogic - Revoked partitions: Set(multiple-bar-android-1). All partitions: Set()
+[DEBUG] - 2019-12-18 16:22:05,715 - akka.kafka.internal.TransactionalSourceLogic - Partitions drained multiple-bar-android-1
+[DEBUG] - 2019-12-18 16:22:05,950 - akka.kafka.internal.TransactionalSourceLogic - Assigned partitions: Set(multiple-bar-android-1). All partitions: Set(multiple-bar-android-1)
+[DEBUG] - 2019-12-18 16:22:05,950 - akka.kafka.internal.TransactionalSourceLogic - Requesting messages, requestId: 4, partitions: Set(multiple-bar-android-1)
+
+
+
+
+
+^C
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get cluster
+error: the server doesn't have a resource type "cluster"
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pods
+No resources found.
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get namespace
+NAME              STATUS   AGE
+analytics-poc     Active   5d5h
+default           Active   8d
+ibm-cert-store    Active   8d
+ibm-system        Active   8d
+kube-node-lease   Active   8d
+kube-public       Active   8d
+kube-system       Active   8d
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe analytics-poc 
+error: the server doesn't have a resource type "analytics-poc"
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe namespace analytics-poc 
+Name:         analytics-poc
+Labels:       name=analytics-poc
+Annotations:  <none>
+Status:       Active
+
+No resource quota.
+
+No resource limits.
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get node
+NAME            STATUS   ROLES    AGE   VERSION
+10.209.198.38   Ready    <none>   8d    v1.14.9+IKS
+10.209.198.40   Ready    <none>   8d    v1.14.9+IKS
+10.209.198.41   Ready    <none>   8d    v1.14.9+IKS
+10.74.225.16    Ready    <none>   8d    v1.14.9+IKS
+10.74.225.22    Ready    <none>   8d    v1.14.9+IKS
+10.74.225.26    Ready    <none>   8d    v1.14.9+IKS
+10.94.242.142   Ready    <none>   8d    v1.14.9+IKS
+10.94.242.151   Ready    <none>   8d    v1.14.9+IKS
+10.94.242.157   Ready    <none>   8d    v1.14.9+IKS
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe node 10.209.198.38
+Name:               10.209.198.38
+Roles:              <none>
+Labels:             arch=amd64
+                    beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=m3c.16x128.encrypted
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-south
+                    failure-domain.beta.kubernetes.io/zone=dal13
+                    ibm-cloud.kubernetes.io/encrypted-docker-data=true
+                    ibm-cloud.kubernetes.io/external-ip=169.62.198.245
+                    ibm-cloud.kubernetes.io/ha-worker=true
+                    ibm-cloud.kubernetes.io/iaas-provider=softlayer
+                    ibm-cloud.kubernetes.io/internal-ip=10.209.198.38
+                    ibm-cloud.kubernetes.io/machine-type=m3c.16x128.encrypted
+                    ibm-cloud.kubernetes.io/os=UBUNTU_18_64
+                    ibm-cloud.kubernetes.io/region=us-south
+                    ibm-cloud.kubernetes.io/sgx-enabled=false
+                    ibm-cloud.kubernetes.io/worker-id=kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447
+                    ibm-cloud.kubernetes.io/worker-pool-id=bnnsrihd0lqv64k0aj8g-153e226
+                    ibm-cloud.kubernetes.io/worker-pool-name=default
+                    ibm-cloud.kubernetes.io/worker-version=1.14.9_1542
+                    ibm-cloud.kubernetes.io/zone=dal13
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=10.209.198.38
+                    kubernetes.io/os=linux
+                    privateVLAN=2739492
+                    publicVLAN=2739490
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 10 Dec 2019 12:08:09 -0500
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Wed, 18 Dec 2019 16:43:49 -0500   Wed, 18 Dec 2019 08:42:26 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Wed, 18 Dec 2019 16:43:49 -0500   Wed, 18 Dec 2019 08:42:26 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Wed, 18 Dec 2019 16:43:49 -0500   Wed, 18 Dec 2019 08:42:26 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Wed, 18 Dec 2019 16:43:49 -0500   Wed, 18 Dec 2019 08:42:26 -0500   KubeletReady                 kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:  10.209.198.38
+  ExternalIP:  169.62.198.245
+  Hostname:    10.209.198.38
+Capacity:
+ cpu:                16
+ ephemeral-storage:  102685624Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             132004056Ki
+ pods:               160
+Allocatable:
+ cpu:                15880m
+ ephemeral-storage:  99892574949
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             122262744Ki
+ pods:               160
+System Info:
+ Machine ID:                 808bd15580ee47eda222cfe210f75f77
+ System UUID:                0C99D7AF-FB5E-CE6C-A53B-4AD76A1F29B7
+ Boot ID:                    7a5c81db-75aa-4efd-9e1b-14ade579a650
+ Kernel Version:             4.15.0-72-generic
+ OS Image:                   Ubuntu 18.04.3 LTS
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  containerd://1.2.11
+ Kubelet Version:            v1.14.9+IKS
+ Kube-Proxy Version:         v1.14.9+IKS
+ProviderID:                  ibm://b5ecedf6a6bc4b7797bfd611e246f418///bnnsrihd0lqv64k0aj8g/kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000447
+Non-terminated Pods:         (6 in total)
+  Namespace                  Name                                                    CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----                                                    ------------  ----------  ---------------  -------------  ---
+  ibm-system                 ibm-cloud-provider-ip-169-62-178-210-b85b944b5-9pgms    5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         8d
+  kube-system                calico-node-b9r2w                                       250m (1%)     0 (0%)      80Mi (0%)        0 (0%)         8d
+  kube-system                ibm-keepalived-watcher-l5ng6                            5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         8d
+  kube-system                ibm-master-proxy-static-10.209.198.38                   25m (0%)      300m (1%)   32M (0%)         512M (0%)      8d
+  kube-system                ibmcloud-iks-debug-daemonset-v84g9                      0 (0%)        0 (0%)      0 (0%)           0 (0%)         26h
+  kube-system                public-crbnnsrihd0lqv64k0aj8g-alb3-6b58c44769-zrswx     10m (0%)      0 (0%)      100Mi (0%)       0 (0%)         4h10m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests       Limits
+  --------           --------       ------
+  cpu                295m (1%)      300m (1%)
+  memory             236050Ki (0%)  512M (0%)
+  ephemeral-storage  0 (0%)         0 (0%)
+Events:              <none>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pods analytics-poc
+Error from server (NotFound): pods "analytics-poc" not found
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ export KUBECONFIG=/Users/$USER/.bluemix/plugins/container-service/clusters/bnnsrihd0lqv64k0aj8g/kube-config-dal10-twc-cicd-trial-cluster.yml
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get namespace
+NAME              STATUS   AGE
+analytics-poc     Active   5d6h
+default           Active   8d
+ibm-cert-store    Active   8d
+ibm-system        Active   8d
+kube-node-lease   Active   8d
+kube-public       Active   8d
+kube-system       Active   8d
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pod -n analytics-poc
+NAME                                                              READY   STATUS                 RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-h7p8k                         1/1     Running                0          6h30m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-wqp8l         2/2     Running                0          6h30m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-4wgbb   1/1     Running                0          6h30m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-gxvmz          1/1     Running                0          6h30m
+analytics-ingest-prometheus-server-c9668c4df-z96qr                2/2     Running                0          6h30m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7   1/1     Running                0          6h30m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-lmbns   1/1     Running                0          6h30m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99   1/1     Running                0          6h30m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6fphq   1/1     Running                0          6h30m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-ltrqn   1/1     Running                0          6h30m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-qz8gb   1/1     Running                0          6h30m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-zfhks   1/1     Running                0          6h30m
+analytics-poc-ingest-time-bucket-aggregation-deployment-5656mnl   1/1     Running                0          6h30m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56k7v8h   1/1     Running                0          6h30m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56q7x7z   1/1     Running                0          6h30m
+analytics-queue-receiver-poc-deployment-677b4478-bpx64            1/1     Running                0          6h30m
+analytics-queue-receiver-poc-deployment-677b4478-kh6fv            1/1     Running                0          6h30m
+analytics-queue-receiver-poc-deployment-677b4478-nxsvb            0/1     CreateContainerError   0          6h30m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl delete pod analytics-queue-receiver-poc-deployment-677b4478-nxsvb -n analytics-poc
+pod "analytics-queue-receiver-poc-deployment-677b4478-nxsvb" deleted
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pod -n analytics-poc
+NAME                                                              READY   STATUS                 RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-h7p8k                         1/1     Running                0          6h31m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-wqp8l         2/2     Running                0          6h31m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-4wgbb   1/1     Running                0          6h31m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-gxvmz          1/1     Running                0          6h31m
+analytics-ingest-prometheus-server-c9668c4df-z96qr                2/2     Running                0          6h31m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7   1/1     Running                0          6h31m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-lmbns   1/1     Running                0          6h31m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99   1/1     Running                0          6h31m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6fphq   1/1     Running                0          6h31m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-ltrqn   1/1     Running                0          6h31m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-qz8gb   1/1     Running                0          6h31m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-zfhks   1/1     Running                0          6h31m
+analytics-poc-ingest-time-bucket-aggregation-deployment-5656mnl   1/1     Running                0          6h31m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56k7v8h   1/1     Running                0          6h31m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56q7x7z   1/1     Running                0          6h31m
+analytics-queue-receiver-poc-deployment-677b4478-bpx64            1/1     Running                0          6h31m
+analytics-queue-receiver-poc-deployment-677b4478-kh6fv            1/1     Running                0          6h31m
+analytics-queue-receiver-poc-deployment-677b4478-mbmjx            0/1     CreateContainerError   0          9s
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -n analytics-poc analytics-poc-ingest-etl-encryption-deployment analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server (NotFound): pods "analytics-poc-ingest-etl-encryption-deployment" not found
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl -n analytics-poc analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7
+Error: unknown command "analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7" for "kubectl"
+Run 'kubectl --help' for usage.
+unknown command "analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7" for "kubectl"
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -n analytics-poc analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+Error from server: Get https://10.74.225.22:10250/containerLogs/analytics-poc/analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7/analytics-poc-ingest-etl-encryption: dial tcp 10.74.225.22:10250: i/o timeout
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ 
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ 
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ 
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ 
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log -n analytics-poc 
+log is DEPRECATED and will be removed in a future version. Use logs instead.
+error: expected 'logs [-f] [-p] (POD | TYPE/NAME) [-c CONTAINER]'.
+POD or TYPE/NAME is a required argument for the logs command
+See 'kubectl logs -h' for help and examples
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl get pods -n analytics-poc
+NAME                                                              READY   STATUS                 RESTARTS   AGE
+analytics-ingest-grafana-7f98b4bd66-h7p8k                         1/1     Running                0          6h53m
+analytics-ingest-prometheus-alertmanager-6fd45654dd-wqp8l         2/2     Running                0          6h53m
+analytics-ingest-prometheus-kube-state-metrics-847fdc7945-4wgbb   1/1     Running                0          6h53m
+analytics-ingest-prometheus-pushgateway-6f8c68bdbf-gxvmz          1/1     Running                0          6h53m
+analytics-ingest-prometheus-server-c9668c4df-z96qr                2/2     Running                0          6h53m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-2lms7   1/1     Running                0          6h53m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-lmbns   1/1     Running                0          6h53m
+analytics-poc-ingest-etl-encryption-deployment-6bdf9c8b98-xrt99   1/1     Running                0          6h53m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-6fphq   1/1     Running                0          6h53m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-ltrqn   1/1     Running                0          6h53m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-qz8gb   1/1     Running                0          6h53m
+analytics-poc-ingest-parquet-writer-deployment-747bf44df4-zfhks   1/1     Running                0          6h53m
+analytics-poc-ingest-time-bucket-aggregation-deployment-5656mnl   1/1     Running                0          6h53m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56k7v8h   1/1     Running                0          6h53m
+analytics-poc-ingest-time-bucket-aggregation-deployment-56q7x7z   1/1     Running                0          6h53m
+analytics-queue-receiver-poc-deployment-677b4478-bpx64            1/1     Running                0          6h53m
+analytics-queue-receiver-poc-deployment-677b4478-kh6fv            1/1     Running                0          6h53m
+analytics-queue-receiver-poc-deployment-677b4478-mbmjx            0/1     CreateContainerError   0          22m
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl describe node 10.209.198.40
+Name:               10.209.198.40
+Roles:              <none>
+Labels:             arch=amd64
+                    beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=m3c.16x128.encrypted
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-south
+                    failure-domain.beta.kubernetes.io/zone=dal13
+                    ibm-cloud.kubernetes.io/encrypted-docker-data=true
+                    ibm-cloud.kubernetes.io/external-ip=169.62.198.246
+                    ibm-cloud.kubernetes.io/ha-worker=true
+                    ibm-cloud.kubernetes.io/iaas-provider=softlayer
+                    ibm-cloud.kubernetes.io/internal-ip=10.209.198.40
+                    ibm-cloud.kubernetes.io/machine-type=m3c.16x128.encrypted
+                    ibm-cloud.kubernetes.io/os=UBUNTU_18_64
+                    ibm-cloud.kubernetes.io/region=us-south
+                    ibm-cloud.kubernetes.io/sgx-enabled=false
+                    ibm-cloud.kubernetes.io/worker-id=kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555
+                    ibm-cloud.kubernetes.io/worker-pool-id=bnnsrihd0lqv64k0aj8g-153e226
+                    ibm-cloud.kubernetes.io/worker-pool-name=default
+                    ibm-cloud.kubernetes.io/worker-version=1.14.9_1542
+                    ibm-cloud.kubernetes.io/zone=dal13
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=10.209.198.40
+                    kubernetes.io/os=linux
+                    privateVLAN=2739492
+                    publicVLAN=2739490
+Annotations:        node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 10 Dec 2019 12:12:27 -0500
+Taints:             <none>
+Unschedulable:      false
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Wed, 18 Dec 2019 17:31:12 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Wed, 18 Dec 2019 17:31:12 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Wed, 18 Dec 2019 17:31:12 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Wed, 18 Dec 2019 17:31:12 -0500   Fri, 13 Dec 2019 10:50:42 -0500   KubeletReady                 kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:  10.209.198.40
+  ExternalIP:  169.62.198.246
+  Hostname:    10.209.198.40
+Capacity:
+ cpu:                16
+ ephemeral-storage:  102685624Ki
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             132004056Ki
+ pods:               160
+Allocatable:
+ cpu:                15880m
+ ephemeral-storage:  99892574949
+ hugepages-1Gi:      0
+ hugepages-2Mi:      0
+ memory:             122262744Ki
+ pods:               160
+System Info:
+ Machine ID:                 eceece5e56eb4080a6cbd31980aa15d1
+ System UUID:                2463C552-14B0-26C6-11A5-B93AA2B4E3A3
+ Boot ID:                    b64c0b74-c6e5-4dac-9ec3-6e6901a19cc6
+ Kernel Version:             4.15.0-72-generic
+ OS Image:                   Ubuntu 18.04.3 LTS
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  containerd://1.2.11
+ Kubelet Version:            v1.14.9+IKS
+ Kube-Proxy Version:         v1.14.9+IKS
+ProviderID:                  ibm://b5ecedf6a6bc4b7797bfd611e246f418///bnnsrihd0lqv64k0aj8g/kube-bnnsrihd0lqv64k0aj8g-twccicdtria-default-00000555
+Non-terminated Pods:         (7 in total)
+  Namespace                  Name                                                      CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                  ----                                                      ------------  ----------  ---------------  -------------  ---
+  analytics-poc              analytics-queue-receiver-poc-deployment-677b4478-bpx64    0 (0%)        0 (0%)      0 (0%)           0 (0%)         7h6m
+  ibm-system                 ibm-cloud-provider-ip-169-62-178-210-b85b944b5-ltp4w      5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         8d
+  kube-system                calico-node-l6n9w                                         250m (1%)     0 (0%)      80Mi (0%)        0 (0%)         8d
+  kube-system                ibm-keepalived-watcher-859bh                              5m (0%)       0 (0%)      10Mi (0%)        0 (0%)         8d
+  kube-system                ibm-master-proxy-static-10.209.198.40                     25m (0%)      300m (1%)   32M (0%)         512M (0%)      8d
+  kube-system                ibmcloud-iks-debug-575995b89-kt8j4                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         27h
+  kube-system                ibmcloud-iks-debug-daemonset-f8jsr                        0 (0%)        0 (0%)      0 (0%)           0 (0%)         27h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests       Limits
+  --------           --------       ------
+  cpu                285m (1%)      300m (1%)
+  memory             133650Ki (0%)  512M (0%)
+  ephemeral-storage  0 (0%)         0 (0%)
+Events:              <none>
+Ajays-MacBook-Pro:~ Ajay.Jayswal@ibm.com$ kubectl log analytics-queue-receiver-poc-deployment-677b4478-bpx64 -n
